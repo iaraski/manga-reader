@@ -1,0 +1,36 @@
+.topManga {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрируем по горизонтали */
+    margin: auto;
+    padding: 20px;
+    h2{
+        margin-left: 260px;
+    }
+
+
+}
+
+.top-manga-carousel {
+    width: 80%; /* Ширина карусели */
+
+}
+
+.top-manga-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left; /* Текст выравнивается по левому краю */
+    padding: 10px;
+}
+
+.top-manga-card img {
+    width: 100%; /* Изображение занимает всю ширину карточки */
+    height: auto;
+}
+
+h2 {
+    text-align: left;
+    width: 100%;
+    margin-bottom: 20px;
+}
