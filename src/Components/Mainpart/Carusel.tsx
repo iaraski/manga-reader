@@ -4,7 +4,7 @@ import 'swiper/css';
 import 'swiper/css/mousewheel'; // Стили для модуля mousewheel
 import { Mousewheel } from 'swiper/modules'; // Импортируем модуль Mousewheel
 import "./manga-carusel.css"
-import {fakeMangaData} from "./Data.tsx";
+import {fakeMangaData} from "../../Data/Data.tsx";
 
 
 

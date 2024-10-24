@@ -1,0 +1,144 @@
+/* Сброс стандартных отступов и расчёт ширины */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Запрет на горизонтальную прокрутку */
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Основной контейнер каталога */
+.catalog {
+    display: grid;
+    grid-template-columns: 3fr 1fr; /* Соотношение 3 к 1 для колонок */
+    gap: 20px; /* Промежуток между колонками */
+    width: 100%;
+    max-width: 1200px; /* Максимальная ширина для больших экранов */
+    margin: 0 auto; /* Центрирование каталога */
+}
+
+/* Заголовок каталога */
+.catalog-h2 {
+    margin-left: 20px;
+    font-size: 24px;
+}
+
+/* Основная часть каталога с карточками */
+.catalog-mainpart {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Гибкая сетка для карточек */
+    gap: 20px; /* Промежуток между карточками */
+}
+
+/* Стиль карточки манги */
+.manga-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 300px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Добавление тени */
+}
+
+/* Фильтры */
+.catalog-filter {
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Тень для фильтров */
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Промежутки между элементами фильтров */
+}
+
+/* Заголовок фильтров */
+.filter-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Контейнер для группы фильтров */
+.filter-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Стили для отдельных фильтров */
+.filter-select {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.filter-select label {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Стили для выпадающих списков и инпутов */
+.filter-select select,
+.year-filter input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease; /* Плавные переходы при взаимодействии */
+}
+
+.filter-select select:hover,
+.year-filter input:hover {
+    border-color: #888;
+}
+
+.filter-select select:focus,
+.year-filter input:focus {
+    outline: none;
+    border-color: #333; /* Акцент на активном элементе */
+}
+
+/* Фильтры по годам */
+.year-filter {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.year-filter input {
+    width: 100%;
+}
+
+/* Кнопка очистки фильтров */
+.clear-button {
+    align-self: flex-end;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.clear-button:hover {
+    background-color: #d32f2f;
+}
+
+.clear-button:focus {
+    outline: none;
+}

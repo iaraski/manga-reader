@@ -8,4 +8,10 @@ export const fakeMangaData   = [
     { id: 7, title: 'Манга 7', image: 'https://via.placeholder.com/200x300' },
     { id: 8, title: 'Манга 8', image: 'https://via.placeholder.com/200x300' },
     { id: 9, title: 'Манга 9', image: 'https://via.placeholder.com/200x300' },
+    { id: 10, title: 'Манга 10', image: 'https://via.placeholder.com/200x300' },
+    { id: 11, title: 'Манга 11', image: 'https://via.placeholder.com/200x300' },
+    { id: 12, title: 'Манга 12', image: 'https://via.placeholder.com/200x300' },
+    { id: 13, title: 'Манга 13', image: 'https://via.placeholder.com/200x300' },
+    { id: 14, title: 'Манга 14', image: 'https://via.placeholder.com/200x300' },
+    { id: 15, title: 'Манга 15', image: 'https://via.placeholder.com/200x300' },
 ];

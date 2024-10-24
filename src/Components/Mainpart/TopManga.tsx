@@ -4,7 +4,7 @@ import 'swiper/css';
 import 'swiper/css/mousewheel';
 import { Mousewheel } from 'swiper/modules';
 import "./TopManga.css";
-import { fakeMangaData } from "./Data.tsx";
+import { fakeMangaData } from "../../Data/Data.tsx";
 
 const TopManga: React.FC = () => {
     return (

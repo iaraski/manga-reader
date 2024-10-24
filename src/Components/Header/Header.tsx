@@ -1,7 +1,8 @@
-import  { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './Header.css';
+import { Link } from "react-router-dom";
 
-export default function Header(){
+export default function Header() {
     const [isSearchVisible, setIsSearchVisible] = useState<boolean>(false);
     const searchInputRef = useRef<HTMLInputElement | null>(null);
 
@@ -35,11 +36,13 @@ export default function Header(){
     return (
         <section className="header">
             <div className="logotip">
+                <Link to="/Home">
                 <p>
                     <img className="logo" src={logo_path} alt="logo" /> angaMania
                 </p>
-                <a>Каталог</a>
-                <a>Топ</a>
+                </Link>
+                <Link to="/catalog">Каталог</Link>
+                <Link to="/top">Топ</Link>
                 {!isSearchVisible ? (
                     <a onClick={toggleSearchBar}>
                         <img className="search" alt="search" src={search_path} />

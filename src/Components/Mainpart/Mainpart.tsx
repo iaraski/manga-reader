@@ -2,6 +2,8 @@
 
 import MangaCarousel from "./Carusel.tsx";
 import TopManga from "./TopManga.tsx";
+import "./Mainpart.css";
+
 
 
 export default function Mainpart() {
@@ -9,6 +11,29 @@ export default function Mainpart() {
         <section className="Mainpart">
             <MangaCarousel/>
             <TopManga/>
+            <h2>Продолжить чтение</h2>
+            <div className="manga-continue">
+                <div className="manga-card-continue">
+                    <img src="https://via.placeholder.com/250x200" alt="manga1"/>
+                    <p>название манги</p>
+                    <p>прочитано n из x</p>
+                    <button> продолжить чтение</button>
+                </div>
+                <div className="manga-card-continue">
+                    <img src="https://via.placeholder.com/250x200" alt="manga1"/>
+                    <p>название манги</p>
+                    <p>прочитано n из x</p>
+                    <button> продолжить чтение</button>
+                </div>
+                <div className="manga-card-continue">
+                    <img src="https://via.placeholder.com/250x200" alt="manga1"/>
+                    <p>название манги</p>
+                    <p>прочитано n из x</p>
+                    <button> продолжить чтение</button>
+                </div>
+
+
+            </div>
         </section>
     )
 }
