@@ -9,6 +9,7 @@ export default function Header() {
     const logo_path = 'https://img.icons8.com/?size=100&id=g3loEKKtGmK2&format=png&color=000000';
     const search_path = 'https://img.icons8.com/?size=100&id=132&format=png&color=000000';
     const account_path = 'https://img.icons8.com/?size=100&id=20137&format=png&color=000000';
+    const create_path = 'https://img.icons8.com/?size=100&id=6697&format=png&color=000000'
 
     const toggleSearchBar = (): void => {
         setIsSearchVisible(!isSearchVisible);
@@ -36,7 +37,7 @@ export default function Header() {
     return (
         <section className="header">
             <div className="logotip">
-                <Link to="/Home">
+                <Link to="">
                 <p>
                     <img className="logo" src={logo_path} alt="logo" /> angaMania
                 </p>
@@ -57,9 +58,12 @@ export default function Header() {
                 )}
             </div>
             <div className="personal_account">
-                <a>
-                    <img className="account_logo" alt="account logo" src={account_path} />
-                </a>
+                <Link to ="/entrance">
+                    <img className="account_logo" alt="account logo" src={account_path}/>
+                </Link>
+                <Link to="/create">
+                    <img className="create_manga" alt="create manga" src={create_path}/>
+                </Link>
             </div>
         </section>
     );

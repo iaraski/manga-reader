@@ -12,11 +12,12 @@
 
     img{
         width: 100px;
-        height: 135px;
+        height: 134px;
         display: flex;
         justify-content: flex-start;
         margin: 0;
         float: left;
+        border-radius: 8px;
     }
     button{
         display: flex;

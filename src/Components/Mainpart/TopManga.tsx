@@ -12,8 +12,8 @@ const TopManga: React.FC = () => {
             <h2>Горячие новинки</h2>
             <div className="top-manga-carousel">
                 <Swiper
-                    slidesPerView={5}
-                    spaceBetween={10} /* Промежуток между карточками */
+                    slidesPerView={6}
+                    spaceBetween={1} /* Промежуток между карточками */
                     mousewheel={true}
                     modules={[Mousewheel]}
                     loop={true}

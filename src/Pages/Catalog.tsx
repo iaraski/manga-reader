@@ -3,20 +3,20 @@ import "./Catalog.css";
 import React from "react";
 import {fakeMangaData} from "../Data/Data.tsx";
 
-// Компонент для карточки манги
-const MangaCard: React.FC<{ title: string; image: string }> = ({ title, image }) => {
+
+export const MangaCard: React.FC<{ title: string; image: string }> = ({ title, image }) => {
     return (
-        <div className="manga-card">
+        <div className="catalog-manga-card">
             <img src={image} alt={title} />
             <h3>{title}</h3>
         </div>
     );
 };
 
-// Компонент для фильтра
 
 
-// Основной компонент каталога
+
+
 export default function Catalog() {
 
 

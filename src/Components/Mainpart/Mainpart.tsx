@@ -31,8 +31,6 @@ export default function Mainpart() {
                     <p>прочитано n из x</p>
                     <button> продолжить чтение</button>
                 </div>
-
-
             </div>
         </section>
     )
