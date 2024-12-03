@@ -1,8 +1,9 @@
 .header {
     display: flex;
     justify-content: space-between;
-    margin: 0 50px 0 30px;
+    padding: 0 50px 0 30px;
     font-family:Comic Sans MS, Comic Sans, cursive;
+    width: 100%;
 }
 
 .logotip {
@@ -20,6 +21,21 @@
         display: flex;
         align-items: center;
         margin-right: 30px;
+    }
+    .navigation{
+        display: flex;
+        flex-direction: row;
+        p {
+            display: flex;
+            align-items: center;
+            margin-right: 100px;
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+            margin-right: 30px;
+        }
     }
 }
 .search {
@@ -58,11 +74,8 @@
     width: 50px;
 }
 
-.account_logo {
+.account_logo, .create_manga {
     width: 50px;
     margin:10px 10px;
 }
-.create_manga{
-    width: 50px;
-    margin:10px 10px;
-}
+

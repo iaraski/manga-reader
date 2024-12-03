@@ -43,6 +43,15 @@ export default function MangaForm() {
 
     const onSubmit = async (data: FormData) => {
         const formData = new FormData();
+
+        // Генерация уникальной ссылки
+        function generateSlug(title: string): string {
+            return `${title.toLowerCase().replace(/\s+/g, '-')}-${Date.now()}`;
+        }
+
+        const slug = generateSlug(data.title);
+        formData.append('slug', slug);
+
         formData.append('title', data.title);
         formData.append('description', data.description);
         formData.append('year', data.year);
@@ -57,6 +66,7 @@ export default function MangaForm() {
             });
         });
 
+        // Отправка данных
         const response = await fetch('/api/manga', {
             method: 'POST',
             body: formData,
@@ -115,7 +125,7 @@ export default function MangaForm() {
     return (
         <section className="Create">
             <h1>Создать мангу</h1>
-            <form onSubmit={handleSubmit(onSubmit)} >
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
                     <label>Название</label>
                     <input
@@ -164,7 +174,7 @@ export default function MangaForm() {
                     />
                     {previewImageUrl && (
                         <div className="preview-image-container">
-                            <img src={previewImageUrl} alt="Preview" className="preview-image"/>
+                            <img src={previewImageUrl} alt="Preview" className="preview-image" />
                         </div>
                     )}
                 </div>

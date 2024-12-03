@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Catalog from "./Pages/Catalog";
 import Top from "./Pages/Top";
 import Create from "./Pages/Create.tsx";
-import Entrance from "./Pages/entrance.tsx";
+import Auth from "./Pages/Auth.tsx";
 
 function App() {
     return (
@@ -17,7 +17,7 @@ function App() {
                 <Route path="/catalog" element={<Catalog />} />
                 <Route path="/top" element={<Top />} />
                 <Route path="/create" element={<Create/>} />
-                <Route path="/entrance" element={<Entrance />} />
+                <Route path="/Auth" element={<Auth />} />
             </Routes>
 
             <Footer />

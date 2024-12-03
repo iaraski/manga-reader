@@ -1,77 +1,78 @@
-import "./Catalog.css";
-
-import React from "react";
+import Select from "react-select";
+import Mangacard from "../Components/Mainpart/Mangacards.tsx";
 import {fakeMangaData} from "../Data/Data.tsx";
-
-
-export const MangaCard: React.FC<{ title: string; image: string }> = ({ title, image }) => {
-    return (
-        <div className="catalog-manga-card">
-            <img src={image} alt={title} />
-            <h3>{title}</h3>
-        </div>
-    );
-};
-
-
-
-
-
+import "./Catalog.css"
 export default function Catalog() {
+    const typeOptions = [
+        { value: "Манга", label: "Манга" },
+        { value: "Манхва", label: "Манхва" },
+        { value: "Маньхуа", label: "Маньхуа" },
+    ];
 
+    const genreOptions = [
+        { value: "Боевик", label: "Боевик" },
+        { value: "Фэнтези", label: "Фэнтези" },
+        { value: "Романтика", label: "Романтика" },
+    ];
+
+    const statusOptions = [
+        { value: "Завершён", label: "Завершён" },
+        { value: "В процессе", label: "В процессе" },
+    ];
 
     return (
-        <section>
-            <h2 className="catalog-h2">Каталог</h2>
-            <div className="catalog">
-                <div className="catalog-mainpart">
-                    {fakeMangaData.map((manga) => (
-                        <MangaCard key={manga.id} title={manga.title} image={manga.image} />
-                    ))}
+        <section className="Catalog">
+            <div className="manga-cards">
+                {fakeMangaData.map((manga) => (
+                    <Mangacard
+                        key={manga.id}
+                        id={manga.id}
+                        type="vertical-manga-card"
+                        image={manga.image}
+                        title={manga.title}
+                        link={manga.link}
+                        genre={manga.genre}
+                        assessment={manga.assessment}
+                        views={manga.views}
+                        likes={manga.likes}
+                        tags={manga.tags}
+                    />
+                ))}
+            </div>
+            <div className="filter">
+                <div className="filter-header">
+                    <span>Фильтры</span>
+                    <button className="clear-filters">ОЧИСТИТЬ</button>
                 </div>
-                <div className="catalog-filter">
-                    <h3>Фильтры</h3>
-                    <button className="clear-button">Очистить</button>
-                    <div className="filter-select">
-                        <label>Типы</label>
-                        <select>
-                            <option>Все</option>
-                            <option>Манга</option>
-                            <option>Манхва</option>
-                            <option>Манхуа</option>
-                        </select>
-                    </div>
-                    <div className="filter-select">
-                        <label>Жанры</label>
-                        <select>
-                            <option>Все</option>
-                            <option>Экшен</option>
-                            <option>Романтика</option>
-                            <option>Фэнтези</option>
-                        </select>
-                    </div>
-                    <div className="filter-select">
-                        <label>Теги</label>
-                        <select>
-                            <option>Все</option>
-                            <option>Приключения</option>
-                            <option>Мистика</option>
-                        </select>
-                    </div>
-                    <div className="filter-select">
-                        <label>Статус проекта</label>
-                        <select>
-                            <option>Все</option>
-                            <option>Завершено</option>
-                            <option>Выпускается</option>
-                        </select>
-                    </div>
-                    <div className="filter-select">
-                        <label>Год выпуска</label>
-                        <div className="year-filter">
-                            <input type="number" placeholder="От" />
-                            <input type="number" placeholder="До" />
-                        </div>
+                <div className="filter-section">
+                    <label>Типы</label>
+                    <Select
+                        isMulti
+                        options={typeOptions}
+                        placeholder="Выберите типы"
+                    />
+                </div>
+                <div className="filter-section">
+                    <label>Жанры</label>
+                    <Select
+                        isMulti
+                        options={genreOptions}
+                        placeholder="Выберите жанры"
+                    />
+                </div>
+                <div className="filter-section">
+                    <label>Статус проекта</label>
+                    <Select
+                        isMulti
+                        options={statusOptions}
+                        placeholder="Выберите статус"
+                    />
+                </div>
+                <div className="filter-section">
+                    <label>Год выпуска</label>
+                    <div className="range-inputs">
+                        <input type="number" placeholder="От" />
+                        <input type="number" placeholder="До" />
                     </div>
                 </div>
             </div>

@@ -42,6 +42,7 @@ export default function Header() {
                     <img className="logo" src={logo_path} alt="logo" /> angaMania
                 </p>
                 </Link>
+
                 <Link to="/catalog">Каталог</Link>
                 <Link to="/top">Топ</Link>
                 {!isSearchVisible ? (
@@ -58,7 +59,7 @@ export default function Header() {
                 )}
             </div>
             <div className="personal_account">
-                <Link to ="/entrance">
+                <Link to ="/Auth">
                     <img className="account_logo" alt="account logo" src={account_path}/>
                 </Link>
                 <Link to="/create">

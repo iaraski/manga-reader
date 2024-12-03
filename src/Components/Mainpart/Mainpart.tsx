@@ -1,6 +1,4 @@
 
-
-import MangaCarousel from "./Carusel.tsx";
 import TopManga from "./TopManga.tsx";
 import "./Mainpart.css";
 
@@ -9,7 +7,10 @@ import "./Mainpart.css";
 export default function Mainpart() {
     return (
         <section className="Mainpart">
-            <MangaCarousel/>
+            <TopManga/>
+            <h2 style={{
+                marginLeft: "20px"
+            }}>топ новинок</h2>
             <TopManga/>
             <h2>Продолжить чтение</h2>
             <div className="manga-continue">

@@ -1,32 +1,11 @@
-.topManga {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Центрируем по горизонтали */
-    margin: auto;
-    padding: 20px;
-
+.slider-container {
+    cursor: grab;
+    user-select: none;
 }
 
-.top-manga-carousel {
-    width: 87%; /* Ширина карусели */
-
+.slider-container:active {
+    cursor: grabbing;
 }
 
-.top-manga-card {
-    width: 195px; /* Ширина карточки */
-    text-align: center;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid #213547;
-}
 
-.top-manga-card img {
-    width: 100%; /* Изображение занимает всю ширину карточки */
-    height: auto;
-}
 
-h2 {
-    text-align: left;
-    width: 100%;
-    margin-bottom: 20px;
-}

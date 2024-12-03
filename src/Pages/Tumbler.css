@@ -1,0 +1,46 @@
+.toggle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background-color: #f9f9f9;
+}
+
+.toggle-switch {
+    position: relative;
+    width: 210px; /* Увеличена общая ширина тумблера на 50px */
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 25px;
+    cursor: pointer;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+}
+
+.toggle-button {
+    position: absolute;
+    padding: 0 20px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    white-space: nowrap;
+    border-radius: 20px;
+    line-height: 40px;
+    transition: transform 0.3s ease, width 0.3s ease, left 0.3s ease;
+}
+
+.left {
+    left: 5px;
+    width: 85px; /* Увеличена ширина для текста "Регистрация" */
+}
+
+.right {
+    left: 85px; /* Сдвиг вправо с учетом увеличенной ширины */
+    width: 80px; /* Увеличена ширина для текста "Вход" */
+    margin-right: 5px;
+}
