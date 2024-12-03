@@ -57,16 +57,16 @@ export default function MangaForm() {
             });
         });
 
-        const response = await fetch('/api/manga', {
-            method: 'POST',
-            body: formData,
-        });
-
-        if (response.ok) {
-            console.log('Данные успешно загружены!');
-        } else {
-            console.error('Ошибка при загрузке');
-        }
+        // const response = await fetch('/api/manga', {
+        //     method: 'POST',
+        //     body: formData,
+        // });
+        //
+        // if (response.ok) {
+        //     console.log('Данные успешно загружены!');
+        // } else {
+        //     console.error('Ошибка при загрузке');
+        // }
     };
 
     const handlePreviewImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
