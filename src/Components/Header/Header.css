@@ -1,42 +1,35 @@
 .header {
     display: flex;
+    flex-wrap: wrap; /* Позволяет переносить элементы на следующую строку */
     justify-content: space-between;
-    padding: 0 50px 0 30px;
-    font-family:Comic Sans MS, Comic Sans, cursive;
+    padding: 0 30px;
+    font-family: Comic Sans MS, Comic Sans, cursive;
     width: 100%;
+    box-sizing: border-box; /* Учитывать отступы в ширине */
 }
 
 .logotip {
     display: flex;
-    flex-direction: row;
-
-    p {
-        display: flex;
-        align-items: center;
-        margin-right: 100px;
-    }
-
-    a {
-        display: flex;
-        align-items: center;
-        margin-right: 30px;
-    }
-    .navigation{
-        display: flex;
-        flex-direction: row;
-        p {
-            display: flex;
-            align-items: center;
-            margin-right: 100px;
-        }
-
-        a {
-            display: flex;
-            align-items: center;
-            margin-right: 30px;
-        }
-    }
+    flex-wrap: wrap; /* Перенос элементов на новую строку */
+    align-items: center;
+    gap: 15px; /* Расстояние между элементами */
 }
+
+.logotip p {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    white-space: nowrap; /* Запрет на перенос текста внутри */
+}
+
+.logotip a {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    text-decoration: none; /* Убирает подчеркивание */
+    white-space: nowrap; /* Не переносить текст на новую строку */
+}
+
 .search {
     width: 30px;
     cursor: pointer;
@@ -46,15 +39,12 @@
     width: auto;
     opacity: 0;
     transition: all 0.5s ease;
-
     border-radius: 20px;
     border: 1px solid #535bf2;
     outline: none;
     background-color: transparent;
     height: 20px;
-    margin:auto;
-
-
+    margin: auto;
     display: flex;
     align-items: center;
 }
@@ -66,7 +56,9 @@
 
 .personal_account {
     display: flex;
+    flex-wrap: wrap; /* Перенос элементов при недостатке места */
     align-items: center;
+    gap: 10px; /* Расстояние между элементами */
 }
 
 .logo {
@@ -75,6 +67,5 @@
 
 .account_logo, .create_manga {
     width: 50px;
-    margin:10px 10px;
+    margin: 10px 5px;
 }
-
