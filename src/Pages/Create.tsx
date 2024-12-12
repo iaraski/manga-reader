@@ -66,17 +66,16 @@ export default function MangaForm() {
             });
         });
 
-        // Отправка данных
-        const response = await fetch('/api/manga', {
-            method: 'POST',
-            body: formData,
-        });
-
-        if (response.ok) {
-            console.log('Данные успешно загружены!');
-        } else {
-            console.error('Ошибка при загрузке');
-        }
+        // const response = await fetch('/api/manga', {
+        //     method: 'POST',
+        //     body: formData,
+        // });
+        //
+        // if (response.ok) {
+        //     console.log('Данные успешно загружены!');
+        // } else {
+        //     console.error('Ошибка при загрузке');
+        // }
     };
 
     const handlePreviewImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -125,7 +124,7 @@ export default function MangaForm() {
     return (
         <section className="Create">
             <h1>Создать мангу</h1>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)} >
                 <div>
                     <label>Название</label>
                     <input
@@ -174,7 +173,7 @@ export default function MangaForm() {
                     />
                     {previewImageUrl && (
                         <div className="preview-image-container">
-                            <img src={previewImageUrl} alt="Preview" className="preview-image" />
+                            <img src={previewImageUrl} alt="Preview" className="preview-image"/>
                         </div>
                     )}
                 </div>

@@ -1,3 +1,7 @@
+.Mainpart{
+    width:100%;
+}
+
 .manga-continue{
     display: flex;
     justify-content: space-between;
