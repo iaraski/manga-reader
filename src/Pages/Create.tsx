@@ -72,7 +72,7 @@ export default function MangaForm() {
 
         chapters.forEach((chapter, chapterIndex) => {
             formData.append(`chapters[${chapterIndex}].number`, chapter.number);
-            formData.append(`chapters[${chapterIndex}].title`, chapter.title); // Добавляем title
+
 
             chapter.frames.forEach((frameGroup, frameIndex) => {
                 frameGroup.forEach((file) => {
