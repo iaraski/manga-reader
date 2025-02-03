@@ -22,6 +22,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #f9f9f9;
 }
 
 .filter-header span {
@@ -30,11 +31,11 @@
 }
 
 .clear-filters {
-    background-color: transparent;
     border: none;
     color: #007BFF;
     font-size: 1rem;
     cursor: pointer;
+    background-color: #f9f9f9;
 }
 
 .clear-filters:hover {
@@ -45,17 +46,20 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+    background-color: #f9f9f9;
 }
 
 .filter-section label {
     font-weight: bold;
     font-size: 1rem;
     color: #333;
+    background-color: #f9f9f9;
 }
 
 .range-inputs {
     display: flex;
     gap: 10px;
+    background-color: #f9f9f9;
 }
 
 .range-inputs input {
@@ -63,6 +67,7 @@
     padding: 8px;
     border: 1px solid #ddd;
     border-radius: 4px;
+    background-color: #f9f9f9;
 }
 
 .filter-section .react-select__control {
@@ -70,8 +75,10 @@
     border-radius: 4px;
     font-size: 1rem;
     padding: 2px;
+    background-color: #f9f9f9;
 }
 
 .filter-section .react-select__menu {
     z-index: 1000;
+    background-color: #f9f9f9;
 }

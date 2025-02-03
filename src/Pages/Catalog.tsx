@@ -2,6 +2,8 @@ import Select from "react-select";
 import Mangacard from "../Components/Mainpart/Mangacards.tsx";
 import {fakeMangaData} from "../Data/Data.tsx";
 import "./Catalog.css"
+
+
 export default function Catalog() {
     const typeOptions = [
         { value: "Манга", label: "Манга" },

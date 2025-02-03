@@ -38,9 +38,9 @@ export default function Header() {
         <section className="header">
             <div className="logotip">
                 <Link to="">
-                <p>
-                    <img className="logo" src={logo_path} alt="logo" /> angaMania
-                </p>
+                    <p>
+                        <img className="logo" src={logo_path} alt="logo" /> angaMania
+                    </p>
                 </Link>
 
                 <Link to="/catalog">Каталог</Link>

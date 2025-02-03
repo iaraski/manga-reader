@@ -44,40 +44,57 @@ export default function MangaForm() {
     const onSubmit = async (data: FormData) => {
         const formData = new FormData();
 
-        // Генерация уникальной ссылки
-        function generateSlug(title: string): string {
+        // Генерация slug
+        const generateSlug = (title: string): string => {
             return `${title.toLowerCase().replace(/\s+/g, '-')}-${Date.now()}`;
-        }
-
+        };
         const slug = generateSlug(data.title);
-        formData.append('slug', slug);
 
+        // Основные поля
+        formData.append('slug', slug);
         formData.append('title', data.title);
         formData.append('description', data.description);
         formData.append('year', data.year);
-        data.genres.forEach((genre) => formData.append('genres', genre.value));
-        data.tags.forEach((tag) => formData.append('tags', tag.value));
-        if (data.previewImage) formData.append('previewImage', data.previewImage[0]);
 
-        chapters.forEach((chapter, index) => {
-            formData.append(`chapter_${index + 1}_number`, chapter.number);
-            chapter.frames.forEach((frame, frameIndex) => {
-                frame.forEach((image) => formData.append(`chapter_${index + 1}_frame_${frameIndex + 1}`, image));
+        // Жанры и теги
+        if (data.genres && data.genres.length > 0) {
+            data.genres.forEach((genre) => formData.append('genres', genre.value));
+        }
+
+        if (data.tags && data.tags.length > 0) {
+            data.tags.forEach((tag) => formData.append('tags', tag.value));
+        }
+
+        // Превью-изображение
+        if (data.previewImage && data.previewImage.length > 0) {
+            formData.append('previewImage', data.previewImage[0]);
+        }
+
+        chapters.forEach((chapter, chapterIndex) => {
+            formData.append(`chapters[${chapterIndex}].number`, chapter.number);
+            formData.append(`chapters[${chapterIndex}].title`, chapter.title); // Добавляем title
+
+            chapter.frames.forEach((frameGroup, frameIndex) => {
+                frameGroup.forEach((file) => {
+                    if (file) {
+                        formData.append(`chapters[${chapterIndex}].frames[${frameIndex}]`, file);
+                    }
+                });
             });
         });
 
-        // const response = await fetch('/api/manga', {
-        //     method: 'POST',
-        //     body: formData,
-        // });
-        //
-        // if (response.ok) {
-        //     console.log('Данные успешно загружены!');
-        // } else {
-        //     console.error('Ошибка при загрузке');
-        // }
-    };
+        // Отправка данных на сервер
+        const response = await fetch('http://localhost:4200/api/manga', {
+            method: 'POST',
+            body: formData,
+        });
 
+        if (response.ok) {
+            console.log('Данные успешно загружены!');
+        } else {
+            console.error('Ошибка при загрузке:', await response.json());
+        }
+    };
     const handlePreviewImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0] || null;
         if (file) {
@@ -124,7 +141,7 @@ export default function MangaForm() {
     return (
         <section className="Create">
             <h1>Создать мангу</h1>
-            <form onSubmit={handleSubmit(onSubmit)} >
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
                     <label>Название</label>
                     <input
@@ -134,7 +151,6 @@ export default function MangaForm() {
                     />
                     {errors.title && <span className="error">{errors.title.message}</span>}
                 </div>
-
                 <div>
                     <label>Описание</label>
                     <textarea
@@ -143,7 +159,6 @@ export default function MangaForm() {
                     />
                     {errors.description && <span className="error">{errors.description.message}</span>}
                 </div>
-
                 <div>
                     <label>Год выпуска</label>
                     <input
@@ -162,7 +177,6 @@ export default function MangaForm() {
                     />
                     {errors.year && <span className="error">{errors.year.message}</span>}
                 </div>
-
                 <div>
                     <label>Превью</label>
                     <input
@@ -173,11 +187,10 @@ export default function MangaForm() {
                     />
                     {previewImageUrl && (
                         <div className="preview-image-container">
-                            <img src={previewImageUrl} alt="Preview" className="preview-image"/>
+                            <img src={previewImageUrl} alt="Preview" className="preview-image" />
                         </div>
                     )}
                 </div>
-
                 <div>
                     <label>Выберите жанры</label>
                     <Controller
@@ -195,7 +208,6 @@ export default function MangaForm() {
                     />
                     {errors.genres && <span className="error">{errors.genres.message}</span>}
                 </div>
-
                 <div>
                     <label>Выберите теги</label>
                     <Controller
@@ -227,7 +239,6 @@ export default function MangaForm() {
                                 required
                             />
                         </div>
-
                         {chapter.frames.map((_, frameIndex) => (
                             <div key={frameIndex} className="frame">
                                 <label>Фрейм {frameIndex + 1}</label>
