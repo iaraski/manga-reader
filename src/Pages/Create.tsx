@@ -151,7 +151,7 @@ export default function MangaForm() {
                     />
                     {errors.title && <span className="error">{errors.title.message}</span>}
                 </div>
-                <div>
+                <div className="description-textarea">
                     <label>Описание</label>
                     <textarea
                         {...register("description", { required: "Описание обязательно" })}

@@ -1,11 +1,15 @@
 .Mainpart{
     width:100%;
+    h2{
+        margin-left:5%;
+        width: 95%;
+    }
 }
-
 .manga-continue{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     margin: 50px 50px;
+    flex-wrap: wrap;
 }
 .manga-card-continue{
     width: 300px;
@@ -13,6 +17,7 @@
     text-align: center;
     border-radius: 8px;
     border: 1px solid #213547;
+    margin-bottom:10px;
 
     img{
         width: 100px;
