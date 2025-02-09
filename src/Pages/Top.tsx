@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { fakeMangaData } from "../Data/Data.tsx";
 import Mangacard from "../Components/Mainpart/Mangacards.tsx";
-import "./Top.css";
 
 export default function Top() {
     const [activeButton, setActiveButton] = useState("Манга"); // Состояние для активной кнопки
