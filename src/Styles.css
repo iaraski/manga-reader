@@ -1,0 +1,130 @@
+header {
+  background-color: #ffffff;
+  width: 100%;
+}
+
+.header {
+  height: 10%;
+  width: 95%;
+  display: grid;
+  justify-content: center;
+  margin: auto;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+.header__button {
+  color: white;
+}
+.header__navigation--2 {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 1vw;
+}
+.header__navigation ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.header__navigation ul li {
+  margin-left: 2vw;
+}
+
+.manga-continue {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 80%;
+  margin-inline: auto;
+}
+.manga-continue__card {
+  width: 300px;
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  background-color: white;
+}
+.manga-continue__card__info {
+  align-self: center;
+  margin-left: 2%;
+}
+.manga-continue__card__info :first-child {
+  margin-bottom: 5%;
+}
+.manga-continue__card__info :nth-child(2) {
+  font-family: Arial Narrow, sans-serif;
+  color: grey;
+}
+.manga-continue__card img {
+  height: 95%;
+  margin: 1% 0 1% 3%;
+}
+
+.vertical-manga-card {
+  min-height: 20vh;
+  height: 400px;
+  max-height: 80vh;
+  padding: 1%;
+  width: 200px;
+  min-width: 10vw;
+  max-width: 40vw;
+}
+.vertical-manga-card p {
+  margin-left: 2%;
+}
+.vertical-manga-card__img {
+  width: 90%;
+  margin: 2.5%;
+  height: 80%;
+}
+.vertical-manga-card__info {
+  display: flex;
+  flex-direction: row;
+  font-family: Arial Narrow, sans-serif;
+  color: grey;
+}
+
+.swiper-container {
+  margin-bottom: 5vh;
+}
+
+.Catalog {
+  grid-template-columns: 1fr 1fr;
+  width: 90%;
+  margin: auto;
+}
+.Catalog__manga-cards {
+  display: grid;
+  width: 60%;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+ul {
+  list-style: none;
+}
+
+.button {
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  height: 5vh;
+  width: 8vw;
+}
+
+.logo {
+  width: 6vw;
+}
+
+.icon {
+  width: 12%;
+}
+
+h2 {
+  background-color: var(--background-color);
+}
+
+/*# sourceMappingURL=Styles.css.map */
