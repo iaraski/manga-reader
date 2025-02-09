@@ -1,7 +1,7 @@
 import Select from "react-select";
 import Mangacard from "../Components/Mainpart/Mangacards.tsx";
 import {fakeMangaData} from "../Data/Data.tsx";
-import "./Catalog.css"
+
 
 
 export default function Catalog() {
@@ -24,7 +24,7 @@ export default function Catalog() {
 
     return (
         <section className="Catalog">
-            <div className="manga-cards">
+            <div className="Catalog__manga-cards">
                 {fakeMangaData.map((manga) => (
                     <Mangacard
                         key={manga.id}
@@ -41,12 +41,12 @@ export default function Catalog() {
                     />
                 ))}
             </div>
-            <div className="filter">
-                <div className="filter-header">
+            <div className="Catalog__filter">
+                <div className="Catalog__filter-header">
                     <span>Фильтры</span>
-                    <button className="clear-filters">ОЧИСТИТЬ</button>
+                    <button className="Catalog__button">ОЧИСТИТЬ</button>
                 </div>
-                <div className="filter-section">
+                <div className="Catalog__filter-section">
                     <label>Типы</label>
                     <Select
                         isMulti
@@ -54,7 +54,7 @@ export default function Catalog() {
                         placeholder="Выберите типы"
                     />
                 </div>
-                <div className="filter-section">
+                <div className="Catalog__filter-section">
                     <label>Жанры</label>
                     <Select
                         isMulti
@@ -62,7 +62,7 @@ export default function Catalog() {
                         placeholder="Выберите жанры"
                     />
                 </div>
-                <div className="filter-section">
+                <div className="Catalog__filter-section">
                     <label>Статус проекта</label>
                     <Select
                         isMulti
@@ -70,7 +70,7 @@ export default function Catalog() {
                         placeholder="Выберите статус"
                     />
                 </div>
-                <div className="filter-section">
+                <div className="Catalog__filter-section">
                     <label>Год выпуска</label>
                     <div className="range-inputs">
                         <input type="number" placeholder="От" />

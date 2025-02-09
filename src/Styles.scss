@@ -1,0 +1,31 @@
+@import "Components/Header/_Header.scss";
+@import "Components/Mainpart/_Mainpart.scss";
+@import "Components/Mainpart/_MangaCards.scss";
+@import "Components/Mainpart/_TopManga.scss";
+@import "Pages/_Bookmarks.scss";
+@import "Pages/_Catalog.scss";
+@import "Pages/_Top.scss";
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+ul{
+  list-style: none;
+}
+.button{
+ background-color:var(--primary-color) ;
+  border-radius:10px;
+  height:5vh;
+  width: 8vw;
+}
+.logo{
+  width: 6vw;
+}
+.icon{
+  width: 12%;
+}
+h2{
+  background-color: var(--background-color) ;
+}

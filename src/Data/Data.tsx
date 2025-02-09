@@ -1,6 +1,6 @@
  export const fakeMangaData   = [
-     { id: 1, title: 'Манга 1', image: 'https://robobux.ru/static/nobann200.jpg', tags:['tags ','tags ','tags ',], assessment: 5,views:10, likes:200, link:'#', genre:"Manga" },
-     { id: 2, title: 'Манга 2', image: 'https://robobux.ru/static/nobann200.jpg', tags:['tags ','tags ','tags ',], assessment: 5,views:10, likes:200, link:'#', genre:"Manga" },
+     { id: 1, title: 'Начало после конца', image: 'https://cover.imglib.info/uploads/cover/the-beginning-after-the-end/cover/59b6d82f-415c-4013-bf57-c14186fe29bd_orig.jpg', tags:['tags ','tags ','tags ',], assessment: 4.9,views:10, likes:200, link:'#', genre:"Манхва" },
+     { id: 2, title: 'о моем перерождении в слизь', image: 'https://remanga.org/media/titles/regarding_reincarnated_to_slime/high_cover.jpg', tags:['tags ','tags ','tags ',], assessment: 5,views:10, likes:200, link:'#', genre:"Manga" },
     { id: 3, title: 'Манга 3', image: 'https://robobux.ru/static/nobann200.jpg', tags:['tags ','tags ','tags '], assessment: 5,views:10, likes:200, link:'#', genre:"Manga" },
     { id: 4, title: 'Манга 4',  image: 'https://robobux.ru/static/nobann200.jpg', tags:['tags ','tags ','tags '], assessment: 5,views:10, likes:200, link:'#', genre:"Manga" },
     { id: 5, title: 'Манга 5', image: 'https://robobux.ru/static/nobann200.jpg', tags:['tags ','tags ','tags '], assessment: 5,views:10, likes:200, link:'#', genre:"Manga" },

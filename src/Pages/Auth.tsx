@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Tumbler from "./Tumbler.tsx";
-import "./Auth.css";
+
 
 export default function Auth() {
     const [isRegister, setIsRegister] = useState(false);

@@ -1,0 +1,41 @@
+@mixin justify-center{
+  display:grid;
+  justify-content: center;
+  margin:auto;
+}
+header{
+  background-color: #ffffff;
+  width: 100%;
+}
+.header{
+  height: 10%;
+  width: 95%;
+  @include justify-center;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  &__button{
+    color: white;
+  }
+
+  &__navigation{
+    &--2{
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 1vw;
+    }
+
+    ul{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      li{
+        margin-left:2vw;
+      }
+
+    }
+
+  }
+
+
+}

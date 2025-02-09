@@ -1,36 +1,35 @@
 import React from "react";
 import { MangaCardProps } from "../../Interfaces.tsx";
-import "./Mangacards.css";
+
 
 const Mangacard: React.FC<MangaCardProps> = ({ id, type, image, title, assessment, views, likes, link, genre, tags }) => {
     if (type === "horizontal-manga-card") {
         return (
 
             <div className="horizontal-manga-card">
-                <span className="card-number">{id}</span> {/* Нумерация карточки */}
                 <a href={link}>
-                    <img src={image} alt=""/>
-                    <div className="card-info">
+                    <img className={type + "__img"} src={image} alt=""/>
+                    <div className={type + "__info"}>
                         <p>{genre}</p>
                         <p>{title}</p>
                         <p>{tags.slice(0, 3)}</p>
-                        <div className="manga-stats">
+                        <div className={type + "__stats"}>
                             <p>
-                                <img
+                                <img className="icon horizontal-manga-card__icon"
                                     src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000"
                                     alt=""
                                 />
                                 : {assessment}
                             </p>
                             <p>
-                                <img
+                                <img className="icon horizontal-manga-card__icon"
                                     src="https://img.icons8.com/?size=100&id=19411&format=png&color=000000"
                                     alt=""
                                 />
                                 : {likes}
                             </p>
                             <p>
-                                <img
+                                <img className="icon horizontal-manga-card__icon"
                                     src="https://img.icons8.com/?size=100&id=7840&format=png&color=000000"
                                     alt=""
                                 />
@@ -39,6 +38,7 @@ const Mangacard: React.FC<MangaCardProps> = ({ id, type, image, title, assessmen
                         </div>
                     </div>
                 </a>
+                <div className="card">{id}</div>
             </div>
 
         );
@@ -47,22 +47,22 @@ const Mangacard: React.FC<MangaCardProps> = ({ id, type, image, title, assessmen
         return (
             <div className={type}>
                 <a href={link}>
-                    <img src={image} alt=""/>
-                    <p className="p2">
-                        <span className="p1">{genre}</span>
-                        <span className="p3">{assessment}
+                    <img className={type + "__img"} src={image} alt=""/>
+                    <p className={type + "__info"}>
+                        <p>{genre + "  "}{assessment}
                             <img
-                                src="https://img.icons8.com/?size=100&id=8ggStxqyboK5&format=png&color=000000"
-                                alt="Звезда"
-                            />
-                        </span>
+                                className="icon vertical-manga-card__icon"
+                                src="https://img.icons8.com/ios-filled/50/737373/star--v1.png" alt=""/>
+                        </p>
                     </p>
-                    <p>{title}</p>
+                    <p>
+                        {title.length > 20 ? title.slice(0, 19) + "..." : title}
+                    </p>
                 </a>
             </div>
         );
     }
-    return null; // На случай, если тип не указан
+    return null;
 };
 
 export default Mangacard;

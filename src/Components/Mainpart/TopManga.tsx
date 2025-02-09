@@ -1,87 +1,59 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import { fakeMangaData } from "../../Data/Data.tsx";
 import Mangacard from "./Mangacards.tsx";
-import "./Mangacards.css";
-import "./TopManga.css"
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css"; // Основной CSS для Swiper
+import "swiper/css/pagination"; // CSS для пагинации
+import "swiper/css/navigation";
 
 const TopManga: React.FC = () => {
-    const sliderRef = useRef<Slider>(null);
-    const [isDragging, setIsDragging] = useState(false);
-
     const settings = {
-        dots: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 8, // Показываем 3 карточки за раз
-        slidesToScroll: 4, // Прокручиваем по 3 карточки за раз
-        arrows: false, // Полностью убираем стрелки
-        responsive: [
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 3, // Для мобильных устройств показываем одну карточку
-                    slidesToScroll: 1,
-                }
+        slidesPerView: 8, // Количество видимых слайдов
+        spaceBetween: 0, // Пробел между слайдами
+        loop: true, // Циклический режим
+        speed: 500, // Скорость анимации
+        navigation: true, // Добавляем навигацию (стрелки)
+        pagination: { clickable: true }, // Добавляем пагинацию
+        breakpoints: {
+            // Адаптивность для разных размеров экрана
+            768: {
+                slidesPerView: 4,
+                spaceBetween: 0,
             },
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 5,
-                    slidesToScroll: 2,
-                }
-            }
-        ],
-    };
-
-    const handleMouseDown = () => {
-        setIsDragging(true);
-    };
-
-    const handleMouseUp = () => {
-        setIsDragging(false);
-    };
-
-    const handleMouseMove = (e: React.MouseEvent) => {
-        if (isDragging) {
-            e.preventDefault();
-            // Прокрутка слайдера при движении мыши
-            const movementX = e.movementX;
-            if (movementX > 0) {
-                sliderRef.current?.slickPrev();
-            } else if (movementX < 0) {
-                sliderRef.current?.slickNext();
-            }
-        }
+            320:{
+                slidesPerView: 2,
+                spaceBetween: 0,
+            },
+            600:{
+                slidesPerView: 3,
+                spaceBetween: 0,
+            },
+            1024: {
+                slidesPerView: 6,
+                spaceBetween: 100,
+            },
+        },
     };
 
     return (
-        <div
-            className="slider-container"
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
-        >
-            <Slider ref={sliderRef} {...settings}>
+            <Swiper {...settings} className="swiper-container" >
                 {fakeMangaData.map((manga) => (
-                    <Mangacard
-                        key={manga.id}
-                        id={manga.id}
-                        title={manga.title}
-                        type="vertical-manga-card"
-                        link={manga.link}
-                        image={manga.image}
-                        assessment={manga.assessment}
-                        tags={manga.tags}
-                        likes={manga.likes}
-                        views={manga.views}
-                        genre={manga.genre}
-                    />
+                    <SwiperSlide key={manga.id}>
+                        <Mangacard
+                            id={manga.id}
+                            title={manga.title}
+                            type="vertical-manga-card"
+                            link={manga.link}
+                            image={manga.image}
+                            assessment={manga.assessment}
+                            tags={manga.tags}
+                            likes={manga.likes}
+                            views={manga.views}
+                            genre={manga.genre}
+                        />
+                    </SwiperSlide>
                 ))}
-            </Slider>
-        </div>
+            </Swiper>
     );
 };
 

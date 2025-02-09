@@ -1,0 +1,26 @@
+.vertical-manga-card{
+  min-height: 20vh;
+  height: 400px;
+  max-height: 80vh;
+  padding: 1%;
+  width:200px;
+  min-width: 10vw;
+  max-width: 40vw;
+  p{
+    margin-left: 2%;
+  }
+  &__icon{
+
+  }
+  &__img{
+    width: 90%;
+    margin: 2.5%;
+    height:80%;
+  }
+  &__info{
+    display: flex;
+    flex-direction: row;
+    font-family:Arial Narrow, sans-serif;
+    color: grey;
+  }
+}
