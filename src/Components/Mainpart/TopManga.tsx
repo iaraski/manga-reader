@@ -8,7 +8,7 @@ import "swiper/css/navigation";
 
 const TopManga: React.FC = () => {
     const settings = {
-        slidesPerView: 8, // Количество видимых слайдов
+        slidesPerView: 10, // Количество видимых слайдов
         spaceBetween: 0, // Пробел между слайдами
         loop: true, // Циклический режим
         speed: 500, // Скорость анимации
@@ -17,21 +17,30 @@ const TopManga: React.FC = () => {
         breakpoints: {
             // Адаптивность для разных размеров экрана
             768: {
-                slidesPerView: 4,
+                slidesPerView: 5,
                 spaceBetween: 0,
             },
             320:{
                 slidesPerView: 2,
                 spaceBetween: 0,
             },
-            600:{
+            425:{
                 slidesPerView: 3,
+            },
+            600:{
+                slidesPerView: 6,
                 spaceBetween: 0,
             },
             1024: {
-                slidesPerView: 6,
-                spaceBetween: 100,
+                slidesPerView: 7,
+                spaceBetween:0,
             },
+            1120:{
+                slidesPerView: 8,
+            },
+            1440:{
+                slidesPerView: 10,
+            }
         },
     };
 
