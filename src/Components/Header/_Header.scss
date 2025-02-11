@@ -15,8 +15,14 @@ header{
   align-items: center;
   &__button{
     color: white;
-    height:80px;
-    border:none;
+    padding: 10%;
+    border:2px solid var(--background-color);
+    border-radius:10px;
+    width:fit-content;
+    background-color: darken(#6c757d,10);
+    &:hover{
+      border:2px solid #007bff;
+    }
   }
 
   &__navigation{

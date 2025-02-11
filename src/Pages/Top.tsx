@@ -48,51 +48,62 @@ export default function Top() {
 
     return (
         <div className="top">
-            <h1>Топ</h1>
             <div className="top__header">
+                <h1>Топ</h1>
+                <div className="top__header__buttons">
+
                     <button
                         ref={mangaRef}
                         className={activeButton === "Манга" ? "active" : ""}
                         onClick={() => handleButtonClick("Манга")}
                     >
-                        <h2>Манга</h2>
+                        <p>Манга</p>
                     </button>
                     <button
                         ref={manhwaRef}
                         className={activeButton === "Манхва" ? "active" : ""}
                         onClick={() => handleButtonClick("Манхва")}
                     >
-                        <h2>Манхва</h2>
+                        <p>Манхва</p>
                     </button>
                     <button
                         ref={manhuaRef}
                         className={activeButton === "Маньхуа" ? "active" : ""}
                         onClick={() => handleButtonClick("Маньхуа")}
                     >
-                        <h2>Маньхуа</h2>
+                        <p>Маньхуа</p>
                     </button>
                     {/* Добавляем подчеркивание */}
                     <div className="underline" ref={underlineRef}></div>
                 </div>
-                <div className="tags-filter">
-                    <button>Потные культяпки</button>
-                    <button>понравится леди</button>
-                    <button>система</button>
-                    <button>вторая жизнь</button>
-                    <button>страшно очень</button>
-                    <button>битва разумов</button>
-                    <button>меч и магия</button>
-                    <button>киберпанк</button>
-                </div>
-                <div className="top__cards">
-                    {fakeMangaData.map((manga) => (
-                        <Mangacard
-                            key={manga.id}
-                            id={manga.id}
-                            type="horizontal-manga-card"
-                            image={manga.image}
-                            title={manga.title}
-                            link={manga.link}
+            </div>
+            <div className="top__tags-filter">
+                <button>Потные культяпки</button>
+                <button>понравится леди</button>
+                <button>система</button>
+                <button>вторая жизнь</button>
+                <button>страшно очень</button>
+                <button>битва разумов</button>
+                <button>меч и магия</button>
+                <button>киберпанк</button>
+                <button>Потные культяпки</button>
+                <button>понравится леди</button>
+                <button>система</button>
+                <button>вторая жизнь</button>
+                <button>страшно очень</button>
+                <button>битва разумов</button>
+                <button>меч и магия</button>
+                <button>киберпанк</button>
+            </div>
+            <div className="top__cards">
+                {fakeMangaData.map((manga) => (
+                    <Mangacard
+                        key={manga.id}
+                        id={manga.id}
+                        type="horizontal-manga-card"
+                        image={manga.image}
+                        title={manga.title}
+                        link={manga.link}
                             genre={manga.genre}
                             assessment={manga.assessment}
                             views={manga.views}

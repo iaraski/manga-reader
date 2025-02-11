@@ -12,30 +12,57 @@
 
 }
 .top{
-  h1{
-    margin-left: 10vw;
+  &__tags-filter{
+    margin-left:10vw;
+    margin-top:1%;
+    width: 80vw;
+    button{
+      border-radius: 20px;
+      width: fit-content;
+      padding: 5px;
+      margin-right: 0.5%;
+      margin-bottom: 0.5%;
+      border: 1px solid var(--background-color);
+      background-color: darken(#f4f4f4, 10%);
+      &:hover{
+        border:1px solid #007bff;
+      }
+    }
   }
   &__header{
     display: flex;
+    flex-direction: row;
+    h1{
+      margin-left:10vw
+    }
+  }
+  &__header__buttons{
+    display: flex;
     width:fit-content;
     flex-direction: row;
-    justify-content: flex-end;
-    margin-right: 10vw;
+    justify-content: flex-start;
+    margin-left: 3vw;
     position: relative;
     margin-bottom:5px;
-    margin-left: auto;
+    margin-right: auto;
     button {
+      display: flex;
+      align-items: flex-end;
       border: none;
       background: none;
       cursor: pointer;
       padding: 0;
-      margin-left: 1%;
+      margin-left: 4%;
       font-size: 18px;
       font-weight: bold;
       color: #333;
       position: relative;
       z-index: 1; /* Чтобы кнопки были поверх линии */
       transition: color 0.3s ease;
+      p{
+        font-weight: 10;
+        color:grey;
+      }
       &.active{
         color: #007bff; /* Цвет активной кнопки */
       }
