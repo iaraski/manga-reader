@@ -1,10 +1,13 @@
 .Catalog{
-  grid-template-columns: 1fr 1fr;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
   width: 90%;
   margin: auto;
   &__manga-cards{
     display: grid;
-    width: 60%;
-    grid-template-columns: repeat(auto-fill,minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(150px, 150px));
+  }
+  &__filter{
+
   }
 }

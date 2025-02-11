@@ -1,0 +1,71 @@
+.underline {
+  position: absolute;
+  bottom: -10px; /* Расположение линии под кнопками */
+  height: 4px; /* Толщина линии */
+  background-color: #007bff; /* Цвет линии */
+  width: 0; /* Начальная ширина */
+  left: 0; /* Начальная позиция */
+  transition: width 0.3s ease, left 0.3s ease; /* Плавное движение */
+  &.active{
+    opacity: 1;
+  }
+
+}
+.top{
+  h1{
+    margin-left: 10vw;
+  }
+  &__header{
+    display: flex;
+    width:fit-content;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 10vw;
+    position: relative;
+    margin-bottom:5px;
+    margin-left: auto;
+    button {
+      border: none;
+      background: none;
+      cursor: pointer;
+      padding: 0;
+      margin-left: 1%;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      position: relative;
+      z-index: 1; /* Чтобы кнопки были поверх линии */
+      transition: color 0.3s ease;
+      &.active{
+        color: #007bff; /* Цвет активной кнопки */
+      }
+      &:hover {
+        color: #007bff; /* Цвет при наведении */
+      }
+    }
+  }
+
+  &__cards{
+    width: 80vw;
+    display: grid;
+    grid-template-columns:auto auto;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+
+  }
+  &__horizontal-manga-card{
+    justify-self: center;
+    margin:3%;
+    background-color: var(--background-color) ;
+
+    &__num{
+      display: flex;
+      align-items:flex-start;
+    }
+    &__img{
+      margin-left:5%;
+      margin-right: 5%;
+    }
+  }
+}

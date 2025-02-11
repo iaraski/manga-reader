@@ -1,3 +1,14 @@
 .swiper-container{
   margin-bottom:5vh;
 }
+
+.lowInfo_Swiper{
+  &__container{
+    width: 800px;
+  }
+  &__cards{
+    display:flex;
+    flex-direction:row;
+
+  }
+}

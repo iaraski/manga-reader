@@ -5,8 +5,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css"; // Основной CSS для Swiper
 import "swiper/css/pagination"; // CSS для пагинации
 import "swiper/css/navigation";
+import {SwiperCardTypeProps} from "../../Interfaces.tsx";
 
-const TopManga: React.FC = () => {
+
+const TopManga: React.FC<SwiperCardTypeProps> = ({cardType, width}) => {
     const settings = {
         slidesPerView: 10, // Количество видимых слайдов
         spaceBetween: 0, // Пробел между слайдами
@@ -43,15 +45,15 @@ const TopManga: React.FC = () => {
             }
         },
     };
-
-    return (
-            <Swiper {...settings} className="swiper-container" >
+    if(cardType == "vertical-manga-card") {
+        return (
+            <Swiper {...settings} className="swiper-container" style={{width:width + "%"}}>
                 {fakeMangaData.map((manga) => (
                     <SwiperSlide key={manga.id}>
                         <Mangacard
                             id={manga.id}
                             title={manga.title}
-                            type="vertical-manga-card"
+                            type={cardType}
                             link={manga.link}
                             image={manga.image}
                             assessment={manga.assessment}
@@ -59,11 +61,74 @@ const TopManga: React.FC = () => {
                             likes={manga.likes}
                             views={manga.views}
                             genre={manga.genre}
+                            progress={manga.progress}
+                            createdDate={manga.createdDate}
+                            numChapters={manga.numChapters}
                         />
                     </SwiperSlide>
                 ))}
             </Swiper>
-    );
+        );
+    }
+    // if (cardType === "horizontal-low-info-manga-card") {
+    //     return (
+    //         <Swiper className="lowInfo_Swiper"
+    //         slidesPerView={1}>
+    //             {fakeMangaData.map((manga) => (
+    //                 <SwiperSlide key={manga.id} className="lowInfo_Swiper__container">
+    //                     <h2>{heading}</h2>
+    //                     <div className="lowInfo_Swipe__cards">
+    //                         <Mangacard
+    //                             id={manga.id}
+    //                             title={manga.title}
+    //                             type={cardType}
+    //                             link={manga.link}
+    //                             image={manga.image}
+    //                             assessment={manga.assessment}
+    //                             tags={manga.tags}
+    //                             likes={manga.likes}
+    //                             views={manga.views}
+    //                             genre={manga.genre}
+    //                             progress={manga.progress}
+    //                             createdDate={manga.createdDate}
+    //                             numChapters={manga.numChapters}
+    //                         />
+    //                         <Mangacard
+    //                             id={manga.id}
+    //                             title={manga.title}
+    //                             type={cardType}
+    //                             link={manga.link}
+    //                             image={manga.image}
+    //                             assessment={manga.assessment}
+    //                             tags={manga.tags}
+    //                             likes={manga.likes}
+    //                             views={manga.views}
+    //                             genre={manga.genre}
+    //                             progress={manga.progress}
+    //                             createdDate={manga.createdDate}
+    //                             numChapters={manga.numChapters}
+    //                         />
+    //                         <Mangacard
+    //                             id={manga.id}
+    //                             title={manga.title}
+    //                             type={cardType}
+    //                             link={manga.link}
+    //                             image={manga.image}
+    //                             assessment={manga.assessment}
+    //                             tags={manga.tags}
+    //                             likes={manga.likes}
+    //                             views={manga.views}
+    //                             genre={manga.genre}
+    //                             progress={manga.progress}
+    //                             createdDate={manga.createdDate}
+    //                             numChapters={manga.numChapters}
+    //                         />
+    //                     </div>
+    //                 </SwiperSlide>
+    //             ))}
+    //         </Swiper>
+    //     )
+    // }
 };
 
 export default TopManga;

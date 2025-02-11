@@ -1,64 +1,109 @@
-import { useState } from "react";
+import {useEffect, useRef, useState} from "react";
 import { fakeMangaData } from "../Data/Data.tsx";
 import Mangacard from "../Components/Mainpart/Mangacards.tsx";
 
 export default function Top() {
-    const [activeButton, setActiveButton] = useState("Манга"); // Состояние для активной кнопки
+    const [activeButton, setActiveButton] = useState("Манга");
+
+    // Создаем refs для каждой кнопки и для линии
+    const mangaRef = useRef<HTMLButtonElement>(null);
+    const manhwaRef = useRef<HTMLButtonElement>(null);
+    const manhuaRef = useRef<HTMLButtonElement>(null);
+    const underlineRef = useRef<HTMLDivElement>(null);
 
     const handleButtonClick = (buttonName: string) => {
         setActiveButton(buttonName);
     };
 
+    // Обновляем позицию подчеркивания при изменении активной кнопки
+    useEffect(() => {
+        const getActiveButtonRef = () => {
+            switch (activeButton) {
+                case "Манга":
+                    return mangaRef.current;
+                case "Манхва":
+                    return manhwaRef.current;
+                case "Маньхуа":
+                    return manhuaRef.current;
+                default:
+                    return null;
+            }
+        };
+
+        const activeElement = getActiveButtonRef();
+        if (activeElement && underlineRef.current) {
+            underlineRef.current.style.width = `${activeElement.offsetWidth}px`;
+            underlineRef.current.style.left = `${activeElement.offsetLeft}px`;
+        }
+    }, [activeButton]);
+
+    // Устанавливаем начальную позицию линии при монтировании компонента
+    useEffect(() => {
+        if (mangaRef.current && underlineRef.current) {
+            underlineRef.current.style.width = `${mangaRef.current.offsetWidth}px`;
+            underlineRef.current.style.left = `${mangaRef.current.offsetLeft}px`;
+        }
+    }, []); // Запускается только один раз при монтировании
+
+
     return (
         <div className="top">
-            <div className="top-header">
-                <h2>Топ</h2>
-                <button
-                    className={activeButton === "Манга" ? "active" : ""}
-                    onClick={() => handleButtonClick("Манга")}
-                >
-                    Манга
-                </button>
-                <button
-                    className={activeButton === "Манхва" ? "active" : ""}
-                    onClick={() => handleButtonClick("Манхва")}
-                >
-                    Манхва
-                </button>
-                <button
-                    className={activeButton === "Маньхуа" ? "active" : ""}
-                    onClick={() => handleButtonClick("Маньхуа")}
-                >
-                    Маньхуа
-                </button>
+            <h1>Топ</h1>
+            <div className="top__header">
+                    <button
+                        ref={mangaRef}
+                        className={activeButton === "Манга" ? "active" : ""}
+                        onClick={() => handleButtonClick("Манга")}
+                    >
+                        <h2>Манга</h2>
+                    </button>
+                    <button
+                        ref={manhwaRef}
+                        className={activeButton === "Манхва" ? "active" : ""}
+                        onClick={() => handleButtonClick("Манхва")}
+                    >
+                        <h2>Манхва</h2>
+                    </button>
+                    <button
+                        ref={manhuaRef}
+                        className={activeButton === "Маньхуа" ? "active" : ""}
+                        onClick={() => handleButtonClick("Маньхуа")}
+                    >
+                        <h2>Маньхуа</h2>
+                    </button>
+                    {/* Добавляем подчеркивание */}
+                    <div className="underline" ref={underlineRef}></div>
+                </div>
+                <div className="tags-filter">
+                    <button>Потные культяпки</button>
+                    <button>понравится леди</button>
+                    <button>система</button>
+                    <button>вторая жизнь</button>
+                    <button>страшно очень</button>
+                    <button>битва разумов</button>
+                    <button>меч и магия</button>
+                    <button>киберпанк</button>
+                </div>
+                <div className="top__cards">
+                    {fakeMangaData.map((manga) => (
+                        <Mangacard
+                            key={manga.id}
+                            id={manga.id}
+                            type="horizontal-manga-card"
+                            image={manga.image}
+                            title={manga.title}
+                            link={manga.link}
+                            genre={manga.genre}
+                            assessment={manga.assessment}
+                            views={manga.views}
+                            likes={manga.likes}
+                            tags={manga.tags}
+                            numChapters={manga.numChapters}
+                            progress={manga.progress}
+                            createdDate={manga.createdDate}
+                        />
+                    ))}
+                </div>
             </div>
-            <div className="tags-filter">
-                <button>Потные культяпки</button>
-                <button>понравится леди</button>
-                <button>система</button>
-                <button>вторая жизнь</button>
-                <button>страшно очень</button>
-                <button>битва разумов</button>
-                <button>меч и магия</button>
-                <button>киберпанк</button>
-            </div>
-            <div className="cards">
-                {fakeMangaData.map((manga) => (
-                    <Mangacard
-                        key={manga.id}
-                        id={manga.id}
-                        type="horizontal-manga-card"
-                        image={manga.image}
-                        title={manga.title}
-                        link={manga.link}
-                        genre={manga.genre}
-                        assessment={manga.assessment}
-                        views={manga.views}
-                        likes={manga.likes}
-                        tags={manga.tags}
-                    />
-                ))}
-            </div>
-        </div>
-    );
-}
+            );
+            }

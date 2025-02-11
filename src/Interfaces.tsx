@@ -5,6 +5,9 @@ export interface MangaCardProps{
     title: string,
     link: string,
     genre: string,
+    progress: number,
+    createdDate: number,
+    numChapters: number,
 
 
     assessment:number,
@@ -12,4 +15,8 @@ export interface MangaCardProps{
     likes:number,
     tags: string[]
 
+}
+export interface SwiperCardTypeProps{
+    cardType: "vertical-manga-card" | "horizontal-low-info-manga-card";
+    width:number;
 }

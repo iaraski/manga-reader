@@ -23,7 +23,7 @@ export default function Catalog() {
     ];
 
     return (
-        <section className="Catalog">
+        <div className="Catalog">
             <div className="Catalog__manga-cards">
                 {fakeMangaData.map((manga) => (
                     <Mangacard
@@ -38,6 +38,10 @@ export default function Catalog() {
                         views={manga.views}
                         likes={manga.likes}
                         tags={manga.tags}
+                        numChapters={manga.numChapters}
+                        progress={manga.progress}
+                        createdDate={manga.createdDate}
+
                     />
                 ))}
             </div>
@@ -78,6 +82,6 @@ export default function Catalog() {
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     );
 }

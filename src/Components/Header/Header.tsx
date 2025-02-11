@@ -18,7 +18,7 @@ export default function Header() {
                 </nav>
                 <nav className="header__navigation header__navigation--2">
                     <ul>
-                        <li><Link to="/Create">Создать</Link></li>
+                        <li><Link to="/Create">Добавить</Link></li>
                         <li><Link to="/Bookmarks">Закладки</Link></li>
                         <li><Link to="/Auth">
                             <button className="button header__button" type="button">Авторизация</button>
