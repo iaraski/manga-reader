@@ -3,7 +3,6 @@ import Mangacard from "../Components/Mainpart/Mangacards.tsx";
 import {fakeMangaData} from "../Data/Data.tsx";
 
 
-
 export default function Catalog() {
     const typeOptions = [
         { value: "Манга", label: "Манга" },
@@ -41,47 +40,48 @@ export default function Catalog() {
                         numChapters={manga.numChapters}
                         progress={manga.progress}
                         createdDate={manga.createdDate}
-
                     />
                 ))}
             </div>
-            <div className="Catalog__filter">
-                <div className="Catalog__filter-header">
-                    <span>Фильтры</span>
-                    <button className="Catalog__button">ОЧИСТИТЬ</button>
-                </div>
-                <div className="Catalog__filter-section">
-                    <label>Типы</label>
-                    <Select
-                        isMulti
-                        options={typeOptions}
-                        placeholder="Выберите типы"
-                    />
-                </div>
-                <div className="Catalog__filter-section">
-                    <label>Жанры</label>
-                    <Select
-                        isMulti
-                        options={genreOptions}
-                        placeholder="Выберите жанры"
-                    />
-                </div>
-                <div className="Catalog__filter-section">
-                    <label>Статус проекта</label>
-                    <Select
-                        isMulti
-                        options={statusOptions}
-                        placeholder="Выберите статус"
-                    />
-                </div>
-                <div className="Catalog__filter-section">
-                    <label>Год выпуска</label>
-                    <div className="range-inputs">
-                        <input type="number" placeholder="От" />
-                        <input type="number" placeholder="До" />
+            <form>
+                <div className="Catalog__filter">
+                    <div className="Catalog__filter-header">
+                        <span>Фильтры</span>
+                        <button className="Catalog__button">ОЧИСТИТЬ</button>
+                    </div>
+                    <div className="Catalog__filter-section">
+                        <label>Типы</label>
+                        <Select
+                            isMulti
+                            options={typeOptions}
+                            placeholder="Выберите типы"
+                        />
+                    </div>
+                    <div className="Catalog__filter-section">
+                        <label>Жанры</label>
+                        <Select
+                            isMulti
+                            options={genreOptions}
+                            placeholder="Выберите жанры"
+                        />
+                    </div>
+                    <div className="Catalog__filter-section">
+                        <label>Статус проекта</label>
+                        <Select
+                            isMulti
+                            options={statusOptions}
+                            placeholder="Выберите статус"
+                        />
+                    </div>
+                    <div className="Catalog__filter-section">
+                        <label>Год выпуска</label>
+                        <div className="range-inputs">
+                            <input type="number" placeholder="От"/>
+                            <input type="number" placeholder="До"/>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     );
 }

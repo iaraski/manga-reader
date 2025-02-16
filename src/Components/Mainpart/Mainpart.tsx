@@ -72,12 +72,12 @@ export default function Mainpart() {
 
             },
             425: {
-                slidesPerView: 3,
+                slidesPerView: 2,
                 spaceBetween: 10,
                 slidersPerGroup:1
             },
             600: {
-                slidesPerView: 4,
+                slidesPerView: 3,
                 spaceBetween: 10,
                 slidersPerGroup:2,
             },
@@ -88,7 +88,7 @@ export default function Mainpart() {
 
             },
             1024: {
-                slidesPerView: 6,
+                slidesPerView: 7,
                 spaceBetween: 10,
                 slidersPerGroup:4,
 

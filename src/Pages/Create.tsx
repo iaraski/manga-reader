@@ -85,7 +85,7 @@ export default function MangaForm() {
 
         // Отправка данных на сервер
         const response = await fetch('http://localhost:4200/api/manga', {
-            method: 'POST',
+            method: '',
             body: formData,
         });
 

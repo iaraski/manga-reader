@@ -3,9 +3,6 @@ import { MangaCardProps } from "../../Interfaces.tsx";
 import {Link} from "react-router-dom";
 
 
-
-
-
 const Mangacard: React.FC<MangaCardProps> = ({type, image, title, assessment, views, likes, link, genre, tags, createdDate, progress, numChapters}) => {
     if (type === "horizontal-manga-card") {
         return (
@@ -74,11 +71,11 @@ const Mangacard: React.FC<MangaCardProps> = ({type, image, title, assessment, vi
     if(type == "horizontal-low-info-manga-card"){
         return (
             <Link to={link}>
-                <div className={type}>
+                <div className={type + " MangaPage__MangaCards__MangaCard"}>
                     <img
                         className={type + "__img img"}
+                        srcSet={image}
                         loading={"lazy"}
-                        src="https://cover.imglib.info/uploads/cover/the-beginning-after-the-end/cover/59b6d82f-415c-4013-bf57-c14186fe29bd_orig.jpg"
                         alt=""/>
                     <div className={type + "__info"}>
                         <p> {title.length > 20 ? title.slice(0, 19) + "..." : title}</p>

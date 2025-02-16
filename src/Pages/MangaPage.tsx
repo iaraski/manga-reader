@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { fakeMangaData } from "../Data/Data.tsx";
 import {RefObject, useEffect, useRef, useState} from "react";
+import Mangacard from "../Components/Mainpart/Mangacards.tsx";
 
 export default function MangaPage() {
     const location = useLocation();
@@ -140,23 +141,47 @@ export default function MangaPage() {
                     >Главы
                     </button>
                     <div className="underline" ref={underlineRef}></div>
-
                 </div>
                 <div className="MangaPage__Content">
-                    {activeInfo === "Описание" && (
-                        <div>
-                            <p>{manga.description}</p>
-                        </div>
-                    )}
-                    {activeInfo === "Главы" && (
-                        <div>
-                            <ul>
-                                {Array.from({length: manga.numChapters}, (_, index) => (
-                                    <li key={index}>Глава {index + 1}</li>
-                                ))}
-                            </ul>
-                        </div>
-                    )}
+                    <div className="MangaPage__DescriptionAndChapters">
+                        {activeInfo === "Описание" && (
+                            <div>
+                                <p>{manga.description}</p>
+                            </div>
+                        )}
+                        {activeInfo === "Главы" && (
+                            <div>
+                                <ul>
+                                    {Array.from({length: manga.numChapters}, (_, index) => (
+                                        <div className="MangaPage__ChapterNum" key={index}>
+                                            <p>{index+1} глава</p>
+                                            <div className="MangaPage__ChapterNum__likes"></div>
+                                        </div>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
+                    </div>
+                    <div className="MangaPage__MangaCards">
+                        {fakeMangaData.slice(0,3).map((manga)=>(
+                            <Mangacard
+                                key={manga.id}
+                                id={manga.id}
+                                title={manga.title}
+                                type="horizontal-low-info-manga-card"
+                                link={manga.link}
+                                image={manga.image}
+                                assessment={manga.assessment}
+                                tags={manga.tags}
+                                likes={manga.likes}
+                                views={manga.views}
+                                genre={manga.genre}
+                                progress={manga.progress}
+                                createdDate={manga.createdDate}
+                                numChapters={manga.numChapters}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

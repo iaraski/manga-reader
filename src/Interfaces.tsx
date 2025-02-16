@@ -10,6 +10,7 @@ export interface MangaCardProps{
     numChapters: number,
     description?: string,
     status?: string,
+    key?: number,
 
 
     assessment:number,

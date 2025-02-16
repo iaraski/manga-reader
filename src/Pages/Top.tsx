@@ -104,14 +104,14 @@ export default function Top() {
                         image={manga.image}
                         title={manga.title}
                         link={manga.link}
-                            genre={manga.genre}
-                            assessment={manga.assessment}
-                            views={manga.views}
-                            likes={manga.likes}
-                            tags={manga.tags}
-                            numChapters={manga.numChapters}
-                            progress={manga.progress}
-                            createdDate={manga.createdDate}
+                        genre={manga.genre}
+                        assessment={manga.assessment}
+                        views={manga.views}
+                        likes={manga.likes}
+                        tags={manga.tags}
+                        numChapters={manga.numChapters}
+                        progress={manga.progress}
+                        createdDate={manga.createdDate}
                         />
                     ))}
                 </div>
