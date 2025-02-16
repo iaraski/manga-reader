@@ -148,6 +148,7 @@ export default function Mainpart() {
                                 progress={manga.progress}
                                 createdDate={manga.createdDate}
                                 numChapters={manga.numChapters}
+                                description={''}
                             />
                         </SwiperSlide>
                     ))}

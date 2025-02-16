@@ -1,0 +1,134 @@
+.underline {
+  position: absolute;
+  bottom: -10px; /* Расположение линии под кнопками */
+  height: 4px; /* Толщина линии */
+  background-color: #007bff; /* Цвет линии */
+  width: 0; /* Начальная ширина */
+  left: 0; /* Начальная позиция */
+  transition: width 0.3s ease, left 0.3s ease; /* Плавное движение */
+  &.active{
+    opacity: 1;
+  }
+
+}
+
+.MangaPage {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  margin: 5% auto 0 auto;
+  flex-direction: row;
+  padding-top: 2%;
+  border-radius: 20px;
+  &__Content{
+    margin-top: 5%;
+  }
+  &__Navigation{
+    display: flex;
+    width:fit-content;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 3vw;
+    position: relative;
+    margin-bottom:5px;
+    margin-right: auto;
+    gap: 20%;
+    button {
+      display: flex;
+      border: none;
+      padding: 0;
+      margin-left: 4%;
+      color: #333;
+      position: relative;
+      z-index: 1; /* Чтобы кнопки были поверх линии */
+      transition: color 0.3s ease;
+      font-size:1rem;
+      background-color: transparent;
+      &.active {
+        color: #007bff; /* Цвет активной кнопки */
+      }
+
+      &:hover {
+        color: #007bff; /* Цвет при наведении */
+      }
+    }
+  }
+  &__rate{
+    margin:5% 5% 0 auto;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    button{
+      width: fit-content;
+      padding: 1%;
+      border: 1px solid var(--background-color);
+      color: grey;
+      border-radius:20px;
+      display: flex;
+      justify-content: center;
+      margin:auto;
+    }
+    img{
+      width:10%;
+    }
+    span{
+      font-size:1.4rem;
+    }
+  }
+  &__Info{
+    width: 70%;
+    h2{
+    background-color: transparent
+    }
+  }
+  &__stats{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    &__stat{
+      margin-right: 8%;
+      p{
+        color:grey;
+        font-weight: 10;
+      }
+      div{
+        p{
+          color:black
+        }
+      }
+      div{
+        display: flex;
+        flex-direction: row;
+        img{
+          width: 15px;
+          height: 15px;
+          margin-top:5%;
+        }
+      }
+    }
+  }
+  &__card{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    position:sticky;
+    button{
+      width: 70%;
+      display: flex;
+      justify-content: center;
+      margin: 0 15% 7% 15%  ;
+      padding: 5%;
+      background-color: darken(#6c757d,10%);
+      border: 1px solid var(--background-color);
+      border-radius:20px;
+      color:white;
+    }
+      img{
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        margin: 0 10% 5% 10%  ;
+        border-radius:10px;
+      }
+  }
+}

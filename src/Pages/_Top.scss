@@ -16,6 +16,8 @@
     margin-left:10vw;
     margin-top:1%;
     width: 80vw;
+    display: flex;
+    flex-wrap: wrap;
     button{
       border-radius: 20px;
       width: fit-content;
@@ -75,11 +77,14 @@
   &__cards{
     width: 80vw;
     display: grid;
-    grid-template-columns:auto auto;
+    grid-template-columns:1fr 1fr;
     margin: 0 auto;
     background-color: white;
     border-radius: 10px;
-
+    justify-content: center;
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
   }
   &__horizontal-manga-card{
     justify-self: center;
@@ -89,10 +94,6 @@
     &__num{
       display: flex;
       align-items:flex-start;
-    }
-    &__img{
-      margin-left:5%;
-      margin-right: 5%;
     }
   }
 }

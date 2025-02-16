@@ -8,6 +8,8 @@ import Create from "./Pages/Create.tsx";
 import Auth from "./Pages/Auth.tsx";
 import "./Styles.css"
 import Bookmarks from "./Pages/Bookmarks.tsx";
+import MangaPage from "./Pages/MangaPage.tsx";
+
 function App() {
     return (
         <Router>
@@ -19,6 +21,7 @@ function App() {
                 <Route path="/Create" element={<Create/>} />
                 <Route path="/Auth" element={<Auth />} />
                 <Route path="/Bookmarks" element={<Bookmarks />} />
+                <Route path="/:id" element={<MangaPage/>} />
             </Routes>
 
             <Footer />

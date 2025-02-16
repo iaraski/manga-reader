@@ -1,12 +1,12 @@
-import {useEffect, useRef, useState} from "react";
+    import {useEffect, useRef, useState} from "react";
 import { fakeMangaData } from "../Data/Data.tsx";
 import Mangacard from "../Components/Mainpart/Mangacards.tsx";
 
 export default function Top() {
-    const [activeButton, setActiveButton] = useState("Манга");
+        const [activeButton, setActiveButton] = useState("Манга");
 
     // Создаем refs для каждой кнопки и для линии
-    const mangaRef = useRef<HTMLButtonElement>(null);
+        const mangaRef = useRef<HTMLButtonElement>(null);
     const manhwaRef = useRef<HTMLButtonElement>(null);
     const manhuaRef = useRef<HTMLButtonElement>(null);
     const underlineRef = useRef<HTMLDivElement>(null);
