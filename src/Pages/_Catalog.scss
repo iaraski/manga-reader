@@ -5,9 +5,22 @@
   margin: auto;
   &__manga-cards{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 150px));
+    grid-template-columns: repeat(auto-fill, minmax(150px, 40vw));
   }
   &__filter{
 
+  }
+}
+@media(max-width: 768px){
+  .Catalog-mobile{
+    display:flex;
+    width: 90%;
+    justify-content: center;
+    margin: auto;
+    &__cards{
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px,200px));
+
+    }
   }
 }

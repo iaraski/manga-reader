@@ -18,6 +18,9 @@ export default function Mainpart() {
         pagination: { clickable: true }, // Добавляем пагинацию
         breakpoints: {
             // Адаптивность для разных размеров экрана
+            200:{
+                slidesPerView: 2,
+            },
             320: {
                 slidesPerView: 2,
                 spaceBetween: 10,
@@ -65,6 +68,9 @@ export default function Mainpart() {
         pagination: { clickable: true }, // Добавляем пагинацию
         breakpoints: {
             // Адаптивность для разных размеров экрана
+            200:{
+              slidesPerView: 2,
+            },
             320: {
                 slidesPerView: 2,
                 spaceBetween: 10,

@@ -152,3 +152,14 @@
       }
   }
 }
+@media (max-width: 768px){
+  .MangaPage{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    &__card{
+      width: 100%;
+
+    }
+  }
+}
