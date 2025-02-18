@@ -167,6 +167,17 @@ export default function Mainpart() {
                     pagination={{clickable: true}}
                     modules={[Navigation]}
                     navigation={true}
+                    breakpoints={{
+                        768:{
+                            slidesPerView:1,
+                            },
+                        500:{
+                            slidesPerView:1,
+                        },
+                        400: {
+                            slidesPerView:1,
+                        }
+                        }}
                 >
                     {fakeMangaData.map((manga) => (
                         <SwiperSlide key={manga.id}>

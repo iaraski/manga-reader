@@ -46,6 +46,7 @@
 /* Для маленьких экранов */
 .header--small {
   flex-direction: column;
+  width: 100vw;
 }
 
 .header--small .header__navigation-1 {

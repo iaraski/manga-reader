@@ -47,6 +47,7 @@
 /* Для маленьких экранов */
 .header--small {
   flex-direction: column;
+  width: 100vw;
 }
 
 .header--small .header__navigation-1 {
@@ -578,13 +579,92 @@
 }
 
 @media (max-width: 768px) {
-  .MangaPage {
-    width: 100%;
+  .MangaPage-mobile {
+    margin: 2% auto auto auto;
+    width: 90vw;
     display: flex;
+    justify-content: center;
     flex-direction: column;
   }
-  .MangaPage__card {
+  .MangaPage-mobile__ChapterNum {
+    background-color: #cfd1d1;
+    margin-bottom: 2%;
+    border-radius: 10px;
+    padding: 2%;
+  }
+  .MangaPage-mobile__ChapterNum p {
+    margin-left: 5%;
+  }
+  .MangaPage-mobile__DescriptionAndChapters {
+    margin-top: 5%;
+  }
+  .MangaPage-mobile .mobile_underline {
+    position: absolute;
+    bottom: -10px; /* Расположение линии под кнопками */
+    height: 4px; /* Толщина линии */
+    background-color: #007bff; /* Цвет линии */
+    width: 0; /* Начальная ширина */
+    left: 0; /* Начальная позиция */
+    transition: width 0.3s ease, left 0.3s ease;
+  }
+  .MangaPage-mobile__navigation {
+    display: flex;
+    position: relative;
+    justify-content: space-around;
+    margin-top: 5%;
+  }
+  .MangaPage-mobile__navigation button {
+    display: flex;
+    border: none;
+    margin-left: 4%;
+    color: #333;
+    position: relative;
+    z-index: 1; /* Чтобы кнопки были поверх линии */
+    transition: color 0.3s ease;
+    font-size: 1rem;
+    background-color: transparent;
+  }
+  .MangaPage-mobile__navigation button.active {
+    color: #007bff; /* Цвет активной кнопки */
+  }
+  .MangaPage-mobile__navigation button:hover {
+    color: #007bff; /* Цвет при наведении */
+  }
+  .MangaPage-mobile__logo {
+    width: 15%;
+  }
+  .MangaPage-mobile__stats {
+    display: flex;
+    flex-direction: row;
     width: 100%;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  .MangaPage-mobile__stats__stat {
+    color: black;
+    width: fit-content;
+  }
+  .MangaPage-mobile__stats__stat-img {
+    color: grey;
+  }
+  .MangaPage-mobile .MangaPage-mobile__info__title-status h1 {
+    display: flex;
+    justify-content: center;
+    margin: 5% auto auto auto;
+  }
+  .MangaPage-mobile .MangaPage-mobile__info__title-status p {
+    display: flex;
+    justify-content: center;
+    margin: 1% auto auto auto;
+    color: grey;
+    font-size: 1.2rem;
+  }
+  .MangaPage-mobile__card-image {
+    width: 80%;
+    margin: 5% auto auto auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
   }
 }
 a {
