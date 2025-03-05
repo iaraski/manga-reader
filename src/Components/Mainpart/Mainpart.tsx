@@ -174,10 +174,19 @@ export default function Mainpart() {
                         500:{
                             slidesPerView:1,
                         },
+                        320:{
+                            slidesPerView:1,
+                        },
                         400: {
                             slidesPerView:1,
-                        }
-                        }}
+                        },
+                       1024: {
+                            slidesPerView:3,
+                        },
+                        1440: {
+                            slidesPerView:3,
+                        },
+                }}
                 >
                     {fakeMangaData.map((manga) => (
                         <SwiperSlide key={manga.id}>

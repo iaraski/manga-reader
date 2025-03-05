@@ -5,22 +5,53 @@
   margin: auto;
   &__manga-cards{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 40vw));
+    grid-template-columns: repeat(auto-fit, 150px);
+    width: auto;
+    justify-content: center;
+    flex-direction: column;
   }
   &__filter{
+    margin-top: 5%;
+    &__range-inputs{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      input{
+        border-radius:5px;
+        border:1px solid grey;
+        padding:5px;
+        &::placeholder{
+          padding-left:3px;
+        }
+      }
+    }
+    &__select{
+      margin-bottom:5%;
+    }
+    &__header{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom:5%;
+      &:first-child{
+        margin-left: 5%;
+      }
+      &_button{
+        margin-right: 5%;
+        padding:5px;
+        border:1px solid var(--background-color);
+        &:hover{
+          border:1px #007bff solid;
+          border-radius:10px;
 
+        }
+      }
+    }
   }
 }
 @media(max-width: 768px){
-  .Catalog-mobile{
-    display:flex;
+  .Catalog{
     width: 90%;
-    justify-content: center;
-    margin: auto;
-    &__cards{
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px,200px));
-
-    }
+    grid-template-columns:1fr;
   }
 }

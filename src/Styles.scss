@@ -5,6 +5,26 @@
 @import "Pages/_Catalog.scss";
 @import "Pages/_Top.scss";
 @import "Pages/_Mangapage.scss";
+@import "Components/Footer/_Footer.scss";
+@import "Pages/_Create.scss";
+@import "Components/_DescriptionEditor.scss";
+
+.button-underline{
+  border: none;
+  padding: 0;
+  color: #333;
+  z-index: 1; /* Чтобы кнопки были поверх линии */
+  transition: color 0.3s ease;
+  font-size:1rem;
+  background-color: transparent;
+  &.active {
+    color: #007bff; /* Цвет активной кнопки */
+  }
+
+  &:hover {
+    color: #007bff; /* Цвет при наведении */
+  }
+}
 
 a{
   text-decoration: none;

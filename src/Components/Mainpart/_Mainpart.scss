@@ -24,11 +24,10 @@
   width: 80vw;
  }
 
-/* Стили для кнопок (по умолчанию невидимые) */
 .swiper-button-next,
 .swiper-button-prev {
-  visibility: hidden; /* Скрываем кнопки по умолчанию */
-  opacity: 0; /* Полная прозрачность */
+  visibility: hidden;
+  opacity: 0;
   transition: opacity 0.3s; /* Только плавное изменение прозрачности */
   width: 40px;
   height: 40px;

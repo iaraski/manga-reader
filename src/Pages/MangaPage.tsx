@@ -13,10 +13,13 @@ export default function MangaPage() {
     // Находим мангу по link
     const manga = fakeMangaData.find((item) => item.link === currentPath);
 
-    const [activeButton, setActiveButton] = useState("Описание");
-    const [activeInfo, setActiveInfo] = useState("Описание")
+    const [activeButton, setActiveButton] = useState("Description");
+    const [activeInfo, setActiveInfo] = useState("Description");
+    const [activeState, setActiveState] = useState("C начала");
 
-
+    const HandleReverseInfo = () => {
+        setActiveState((prevState) => (prevState === "C начала" ? "C конца" : "C начала"));
+    };
     const descriptionRef:RefObject<HTMLButtonElement> = useRef<HTMLButtonElement>(null);
     const chaptersRef:RefObject<HTMLButtonElement> = useRef<HTMLButtonElement>(null);
     const underlineRef = useRef<HTMLDivElement>(null);
@@ -24,9 +27,9 @@ export default function MangaPage() {
     useEffect(() => {
         const getActiveButtonRef = () => {
             switch (activeButton) {
-                case "Описание":
+                case "Description":
                     return descriptionRef.current;
-                case "Главы":
+                case "Chapters":
                     return chaptersRef.current;
             }
         };
@@ -55,7 +58,7 @@ export default function MangaPage() {
     }
 
     const bg_style = {
-        background: `linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 1)), url(${manga.image}) no-repeat center top`, // Динамический фон
+        background: `linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 1)), url(${manga.image}) no-repeat center top`, // Динамический фон
         backgroundSize: "cover", // Масштабирует изображение под контейнер
         overflow: "hidden", // Убираем лишние элементы за пределами контейнера
     };
@@ -115,36 +118,43 @@ export default function MangaPage() {
                     <div className="MangaPage-mobile__navigation">
                         <button
                             ref={descriptionRef}
-                            onClick={() => handleButtonClick("Описание")}
-                            className={activeButton === "Описание" ? "active" : ""}
+                            onClick={() => handleButtonClick("Description")}
+                            className={`button-underline ${activeButton === "Description" ? "active" : ""}`}
                         >Описание
                         </button>
                         <button
                             ref={chaptersRef}
-                            onClick={() => handleButtonClick("Главы")}
-                            className={activeButton === "Главы" ? "active" : ""}
+                            onClick={() => handleButtonClick("Chapters")}
+                            className={`button-underline ${activeButton === "Chapters" ? "active" : ""}`}
                         >Главы
                         </button>
                         <div className="mobile_underline" ref={underlineRef}></div>
                     </div>
                     <div className="MangaPage-mobile__DescriptionAndChapters">
-                        {activeInfo === "Описание" && (
+
+                        {activeInfo === "Description" && (
                             <div>
                                 <p>{manga.description}</p>
                             </div>
                         )}
 
-                            {activeInfo === "Главы" && (
-                                <div>
-                                    <ul>
-                                        {Array.from({length: manga.numChapters}, (_, index) => (
-                                            <div className="MangaPage-mobile__ChapterNum" key={index}>
-                                                <p>{index + 1} глава</p>
+                        {activeInfo === "Chapters" && (
+                            <div>
+                                <button className="MangaPage-mobile__reverseButton" onClick={HandleReverseInfo}>
+                                    Показать {activeState === "C начала" ? "с конца" : "с начала"}
+                                </button>
+                                <ul>
+                                    {Array.from({length: manga.numChapters}, (_, index) => {
+                                        const chapterIndex = activeState === "C начала" ? index : manga.numChapters - 1 - index;
+                                        return (
+                                            <div className="MangaPage-mobile__ChapterNum" key={chapterIndex}>
+                                                <p>Глава {chapterIndex + 1}</p>
                                             </div>
-                                        ))}
-                                    </ul>
-                                </div>
-                            )}
+                                        );
+                                    })}
+                                </ul>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
@@ -193,7 +203,7 @@ export default function MangaPage() {
                             <p>Просмотров</p>
                             <div>
                                 <img
-                                    src="https://img.icons8.com/ios-glyphs/30/filled-like.png"
+                                    src="https://img.icons8.com/?size=100&id=gEem2MeykyL5&format=png&color=000000"
                                     alt=""
                                 />
                                 <p>{manga.views}</p>
@@ -217,34 +227,39 @@ export default function MangaPage() {
                     <div className="MangaPage__Navigation">
                         <button
                             ref={descriptionRef}
-                            onClick={() => handleButtonClick("Описание")}
-                            className={activeButton === "Описание" ? "active" : ""}
+                            onClick={() => handleButtonClick("Description")}
+                            className={`button-underline ${activeButton === "Description" ? "active" : ""}`}
                         >Описание
                         </button>
                         <button
                             ref={chaptersRef}
-                            onClick={() => handleButtonClick("Главы")}
-                            className={activeButton === "Главы" ? "active" : ""}
+                            onClick={() => handleButtonClick("Chapters")}
+                            className={`button-underline ${activeButton === "Chapters" ? "active" : ""}`}
                         >Главы
                         </button>
                         <div className="underline" ref={underlineRef}></div>
                     </div>
                     <div className="MangaPage__Content">
                         <div className="MangaPage__DescriptionAndChapters">
-                            {activeInfo === "Описание" && (
+                            {activeInfo === "Description" && (
                                 <div>
                                     <p>{manga.description}</p>
                                 </div>
                             )}
-                            {activeInfo === "Главы" && (
+                            {activeInfo === "Chapters" && (
                                 <div>
+                                    <button className="MangaPage__reverseButton" onClick={HandleReverseInfo}>
+                                        Показать {activeState === "C начала" ? "с конца" : "с начала"}
+                                    </button>
                                     <ul>
-                                        {Array.from({length: manga.numChapters}, (_, index) => (
-                                            <div className="MangaPage__ChapterNum" key={index}>
-                                                <p>{index+1} глава</p>
-                                                <div className="MangaPage__ChapterNum__likes"></div>
-                                            </div>
-                                        ))}
+                                        {Array.from({length: manga.numChapters}, (_, index) => {
+                                            const chapterIndex = activeState === "C начала" ? index : manga.numChapters - 1 - index;
+                                            return (
+                                                <div className="MangaPage__ChapterNum" key={chapterIndex}>
+                                                    <p>Глава {chapterIndex + 1}</p>
+                                                </div>
+                                            );
+                                        })}
                                     </ul>
                                 </div>
                             )}

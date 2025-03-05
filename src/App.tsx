@@ -23,7 +23,6 @@ function App() {
                 <Route path="/Bookmarks" element={<Bookmarks />} />
                 <Route path="/:id" element={<MangaPage/>} />
             </Routes>
-
             <Footer />
         </Router>
     );

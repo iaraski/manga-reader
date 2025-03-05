@@ -130,11 +130,10 @@
   width: 80vw;
 }
 
-/* Стили для кнопок (по умолчанию невидимые) */
 .swiper-button-next,
 .swiper-button-prev {
-  visibility: hidden; /* Скрываем кнопки по умолчанию */
-  opacity: 0; /* Полная прозрачность */
+  visibility: hidden;
+  opacity: 0;
   transition: opacity 0.3s; /* Только плавное изменение прозрачности */
   width: 40px;
   height: 40px;
@@ -314,18 +313,53 @@
 }
 .Catalog__manga-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 40vw));
+  grid-template-columns: repeat(auto-fit, 150px);
+  width: auto;
+  justify-content: center;
+  flex-direction: column;
 }
+.Catalog__filter {
+  margin-top: 5%;
+}
+.Catalog__filter__range-inputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.Catalog__filter__range-inputs input {
+  border-radius: 5px;
+  border: 1px solid grey;
+  padding: 5px;
+}
+.Catalog__filter__range-inputs input::placeholder {
+  padding-left: 3px;
+}
+.Catalog__filter__select {
+  margin-bottom: 5%;
+}
+.Catalog__filter__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 5%;
+}
+.Catalog__filter__header:first-child {
+  margin-left: 5%;
+}
+.Catalog__filter__header_button {
+  margin-right: 5%;
+  padding: 5px;
+  border: 1px solid var(--background-color);
+}
+.Catalog__filter__header_button:hover {
+  border: 1px #007bff solid;
+  border-radius: 10px;
+}
+
 @media (max-width: 768px) {
-  .Catalog-mobile {
-    display: flex;
+  .Catalog {
     width: 90%;
-    justify-content: center;
-    margin: auto;
-  }
-  .Catalog-mobile__cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 200px));
+    grid-template-columns: 1fr;
   }
 }
 .underline {
@@ -451,6 +485,15 @@
   flex-direction: row;
   padding-top: 2%;
   border-radius: 20px;
+  position: relative;
+  overflow-y: auto;
+  height: 200vw;
+}
+.MangaPage__reverseButton {
+  padding: 5px;
+  background-color: transparent;
+  border: none;
+  font-size: 0.9rem;
 }
 .MangaPage__ChapterNum {
   background-color: #cfd1d1;
@@ -470,7 +513,8 @@
   margin-top: 5%;
 }
 .MangaPage__DescriptionAndChapters {
-  width: 60%;
+  width: 58%;
+  margin-right: 2%;
 }
 .MangaPage__Navigation {
   display: flex;
@@ -485,21 +529,8 @@
 }
 .MangaPage__Navigation button {
   display: flex;
-  border: none;
-  padding: 0;
   margin-left: 4%;
-  color: #333;
   position: relative;
-  z-index: 1; /* Чтобы кнопки были поверх линии */
-  transition: color 0.3s ease;
-  font-size: 1rem;
-  background-color: transparent;
-}
-.MangaPage__Navigation button.active {
-  color: #007bff; /* Цвет активной кнопки */
-}
-.MangaPage__Navigation button:hover {
-  color: #007bff; /* Цвет при наведении */
 }
 .MangaPage__rate {
   margin: 5% 5% 0 auto;
@@ -558,6 +589,7 @@
   display: flex;
   flex-direction: column;
   position: sticky;
+  top: 0;
 }
 .MangaPage__card button {
   width: 70%;
@@ -597,6 +629,11 @@
   }
   .MangaPage-mobile__DescriptionAndChapters {
     margin-top: 5%;
+  }
+  .MangaPage-mobile__reverseButton {
+    background-color: transparent;
+    border: none;
+    font-size: 0.9rem;
   }
   .MangaPage-mobile .mobile_underline {
     position: absolute;
@@ -667,6 +704,156 @@
     border-radius: 20px;
   }
 }
+.footer {
+  background-color: #222;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  margin-top: 50px;
+  width: 100%;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+  background: #222;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: #fff;
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-text {
+  font-size: 12px;
+}
+
+.Create {
+  width: 70%;
+  margin: 2% auto auto auto;
+}
+.Create__Selects__info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-bottom: 5%;
+}
+.Create__Selects__info .custom-select__control {
+  width: 20vw;
+  border-radius: 15px;
+  border-color: grey;
+}
+.Create__Selects__info input {
+  width: 20vw;
+}
+.Create__Selects__info-2 .custom-select__control {
+  width: 30vw;
+}
+.Create__note {
+  background-color: lightblue;
+  padding: 5px;
+  border-left: 4px solid blue;
+}
+.Create__note p {
+  font-size: 0.8rem;
+  color: grey;
+  font-weight: 1;
+}
+.Create input {
+  width: 100%;
+  border-radius: 20px;
+  padding: 10px;
+  border: 1px solid transparent;
+  outline: none;
+}
+.Create__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2% auto auto 2%;
+}
+.Create__title div {
+  width: 100%;
+}
+.Create__img-title {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+}
+.Create__img-title button, .Create__img-title img {
+  border-radius: 20px;
+}
+.Create__img-title button {
+  border: none;
+}
+
+.content-block {
+  background-color: white;
+  margin-top: 5%;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.ProseMirror {
+  min-height: 200px;
+}
+.ProseMirror p {
+  border-bottom-color: lightgray;
+}
+.ProseMirror-focused {
+  outline: none;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: row;
+  gap: 3%;
+  justify-content: center;
+  margin-bottom: 2%;
+}
+.button-group .is-active {
+  background-color: lightskyblue;
+}
+.button-group button {
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  width: 40px;
+  padding: 10px;
+}
+.button-group button img {
+  width: 20px;
+}
+.button-group button:hover {
+  background-color: lightskyblue;
+}
+
+.button-underline {
+  border: none;
+  padding: 0;
+  color: #333;
+  z-index: 1; /* Чтобы кнопки были поверх линии */
+  transition: color 0.3s ease;
+  font-size: 1rem;
+  background-color: transparent;
+}
+.button-underline.active {
+  color: #007bff; /* Цвет активной кнопки */
+}
+.button-underline:hover {
+  color: #007bff; /* Цвет при наведении */
+}
+
 a {
   text-decoration: none;
   color: black;
